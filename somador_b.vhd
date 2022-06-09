@@ -3,27 +3,27 @@ use ieee.std_logic_1164.all;
 
 entity somador_b is
     port(
-        a, b, sub: in std_logic;
+        a, b, ci: in std_logic;
         co, s: out std_logic
     );
 
-end somador_c;
+end somador_b;
 
 
 architecture somador_1b_arch of somador_b is
 begin 
 
-process(a, b, sub, co)
+process(a, b, ci)
 begin
-    if   ((a='0' and b='1' and sub='1') or
-         (a='1' and b='1' and sub='0') or
-         (a='1' and b='0' and sub='1') or
-         (a='1' and b='1' and sub='1')) then
+    if   ((a='0' and b='1' and ci='1') or
+         (a='1' and b='1' and ci='0') or
+         (a='1' and b='0' and ci='1') or
+         (a='1' and b='1' and ci='1')) then
          co <= '1';
     else co <= '0';
     end if;
 end process;
                 
-    s <= (a xor b xor sub);
+    s <= (a xor b xor ci);
     
-end somador_arch;
+end somador_1b_arch;

@@ -11,7 +11,7 @@ end mux21;
 architecture mux_21_arch of mux21 is
 begin
 
-    b_out <= b_in when(not sub) else
-            (not b_in) when(sub);
+    b_out <= b_in when(sub = '0') else
+            (not b_in) when(sub = '1');
 
 end mux_21_arch;
